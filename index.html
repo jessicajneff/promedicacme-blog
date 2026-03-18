@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+  PAGE: Blog Index
+  SITE: Promedica CME
+  VERSION: 1.0
+  INSTRUCTIONS FOR ADDING A NEW POST:
+  1. Duplicate one of the <a class="post-card"> blocks below
+  2. Update: href, data-category, category label, date, read time, title, excerpt
+  3. Save and re-deploy to Netlify (drag & drop your folder)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Promedica CME</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="blog.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-brand" href="#">Promedica <span>CME</span></a>
+  <ul class="nav-links">
+    <li><a href="https://promedicacme.com/programs/" target="_blank">Programs</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
+    <li><a href="https://promedicacme.com/people/" target="_blank">About</a></li>
+    <li><a href="https://members.promedicacme.com/contact-us-form?_gl=1*18rk791*_ga*MTE4ODcwMzUzMC4xNzY3OTEwMzcw*_ga_32XM3S88RF*czE3NzM4NjkzNTAkbzIxJGcxJHQxNzczODY5NzY0JGo4JGwwJGgw" target="_blank">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <div class="eyebrow">Promedica CME</div>
+    <h1 class="blog-header-title">Insights for Healthcare Professionals</h1>
+    <p class="blog-header-sub">Practical perspectives on communication, conflict, emotional intelligence, and leadership in clinical settings.</p>
+  </div>
+</header>
+
+<!-- INDEX BODY -->
+<main class="blog-index-body">
+
+  <!-- FILTER TABS -->
+  <!-- To add a new category: duplicate a .filter-btn and update data-filter and label -->
+  <div class="blog-filters">
+    <button class="filter-btn active" data-filter="all">All Topics</button>
+    <button class="filter-btn" data-filter="conflict">Conflict Management</button>
+    <button class="filter-btn" data-filter="eq">Emotional Intelligence</button>
+    <button class="filter-btn" data-filter="communication">Communication</button>
+    <button class="filter-btn" data-filter="leadership">Leadership</button>
+  </div>
+
+  <!-- POST LIST -->
+  <!-- ================================================================
+       HOW TO ADD A NEW POST:
+       1. Copy one <a class="post-card"> block
+       2. Change href="your-new-post.html"
+       3. Change data-category to match a filter tab (e.g. "conflict")
+       4. Update category label, date, read time, title, excerpt
+       5. Create the new post HTML file (use post-template.html as your base)
+       ================================================================ -->
+  <div class="post-list" id="postList">
+
+    <!-- POST 1 -->
+    <a class="post-card" href="meet-the-tki.html" data-category="conflict">
+      <div class="post-meta">
+        <span class="post-category">Conflict Management</span>
+        <span class="post-meta-sep"></span>
+        <span class="post-date">March 18, 2026</span>
+      </div>
+      <h2 class="post-title">Meet the TKI: The Conflict Style Assessment Over 10 Million People Have Taken</h2>
+      <p class="post-excerpt">A short assessment that reveals which conflict handling modes you may be under or overutilizing — and why that matters in healthcare.</p>
+      <div class="post-read-more">Read more →</div>
+    </a>
+
+  </div><!-- /.post-list -->
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Promedica <span>CME</span></div>
+  <ul class="footer-links">
+    <li><a href="https://promedicacme.com/programs/" target="_blank">Programs</a></li>
+    <li><a href="index.html">Blog</a></li>
+    <li><a href="https://promedicacme.com/people/" target="_blank">About</a></li>
+    <li><a href="https://members.promedicacme.com/contact-us-form?_gl=1*18rk791*_ga*MTE4ODcwMzUzMC4xNzY3OTEwMzcw*_ga_32XM3S88RF*czE3NzM4NjkzNTAkbzIxJGcxJHQxNzczODY5NzY0JGo4JGwwJGgw" target="_blank">Contact</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 Promedica CME International. All rights reserved.</p>
+</footer>
+
+<script>
+  // Category filter — no library needed
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const posts = document.querySelectorAll('.post-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      posts.forEach((post, i) => {
+        const match = filter === 'all' || post.dataset.category === filter;
+        post.style.display = match ? 'block' : 'none';
+        if (match) post.style.animationDelay = (i * 0.06) + 's';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
