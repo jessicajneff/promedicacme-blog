@@ -341,9 +341,9 @@ body {
   margin-bottom: 18px;
 }
 .post-header-subtitle {
-  font-family: 'Lora', serif;
-  font-style: italic;
+  font-family: 'Outfit', sans-serif;
   font-size: 18px;
+  font-weight: 400;
   color: rgba(255,255,255,0.88);
   line-height: 1.65;
 }
@@ -356,7 +356,7 @@ body {
 }
 
 .post-body {
-  font-family: 'Lora', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 17px;
   color: var(--text-dark);
   line-height: 1.85;
@@ -401,9 +401,9 @@ body {
   margin: 2em 0;
 }
 .pull-quote p {
-  font-family: 'Lora', serif;
-  font-style: italic;
+  font-family: 'Outfit', sans-serif;
   font-size: 20px !important;
+  font-weight: 500;
   color: var(--text-dark) !important;
   line-height: 1.6 !important;
   margin-bottom: 0 !important;
