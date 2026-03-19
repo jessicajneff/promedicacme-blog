@@ -106,9 +106,9 @@
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const filter = btn.dataset.filter;
-      posts.forEach((post, i) => {
-        const match = filter === 'all' || post.dataset.category === filter;
+    const filter = btn.dataset.filter;
+posts.forEach((post, i) => {
+  const match = filter === 'all' || post.dataset.category.split(' ').includes(filter);
         post.style.display = match ? 'block' : 'none';
         if (match) post.style.animationDelay = (i * 0.06) + 's';
       });
