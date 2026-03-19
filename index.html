@@ -61,15 +61,20 @@
        5. Create the new post HTML file (use post-template.html as your base)
        ================================================================ -->
   <div class="post-list" id="postList">
-<a class="post-card" href="crucial-conversations.html" data-category="communication conflict">
-  <div class="post-meta">
-    <span class="post-category">Conflict Management</span>
-  </div>
-  <h2 class="post-title">How to Have the Conversations That Actually Matter</h2>
-  <p class="post-excerpt">When opinions differ, stakes are high, and emotions run hot — the way we handle those moments changes everything.</p>
-  <div class="post-read-more">Read more →</div>
-</a>
+
     <!-- POST 1 -->
+    <a class="post-card" href="crucial-conversations.html" data-category="conflict communication">
+      <div class="post-meta">
+        <span class="post-category">Conflict Management</span>
+        <span class="post-meta-sep"></span>
+        <span class="post-category">Communication</span>
+      </div>
+      <h2 class="post-title">How to Have the Conversations That Actually Matter</h2>
+      <p class="post-excerpt">When opinions differ, stakes are high, and emotions run hot — the way we handle those moments changes everything.</p>
+      <div class="post-read-more">Read more →</div>
+    </a>
+
+    <!-- POST 2 -->
     <a class="post-card" href="meet-the-tki.html" data-category="conflict">
       <div class="post-meta">
         <span class="post-category">Conflict Management</span>
@@ -106,9 +111,10 @@
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-    const filter = btn.dataset.filter;
-posts.forEach((post, i) => {
-  const match = filter === 'all' || post.dataset.category.split(' ').includes(filter);
+      const filter = btn.dataset.filter;
+      posts.forEach((post, i) => {
+        const categories = post.dataset.category.split(' ');
+        const match = filter === 'all' || categories.includes(filter);
         post.style.display = match ? 'block' : 'none';
         if (match) post.style.animationDelay = (i * 0.06) + 's';
       });
